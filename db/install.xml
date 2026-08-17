@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/flexaccessactivation/db" VERSION="2026081700" COMMENT="XMLDB file for mod_flexaccessactivation">
+<XMLDB PATH="mod/flexaccess/db" VERSION="2026081700" COMMENT="XMLDB file for mod_flexaccess">
   <TABLES>
-    <TABLE NAME="flexaccessactivation" COMMENT="FlexAccess self-activation activity instances">
+    <TABLE NAME="flexaccess" COMMENT="FlexAccess self-activation activity instances">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>

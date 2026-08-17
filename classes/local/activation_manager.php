@@ -21,7 +21,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_flexaccessactivation\local;
+namespace mod_flexaccess\local;
 
 /** Activation orchestration boundary. */
 final class activation_manager {

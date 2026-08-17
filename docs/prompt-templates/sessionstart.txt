@@ -1,6 +1,6 @@
-# Session start — mod_flexaccessactivation
+# Session start — mod_flexaccess
 
-You are continuing development of **mod_flexaccessactivation** (Kursaktivität zur Selbstaktivierung).
+You are continuing development of **mod_flexaccess** (Kursaktivität zur Selbstaktivierung).
 
 Before changing code:
 1. Read `docs/Lastenheft.md`, `docs/Pflichtenheft.md`, and `docs/Technisches_Blueprint.md`.
