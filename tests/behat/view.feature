@@ -1,4 +1,4 @@
-@mod_flexaccessactivation
+@mod_flexaccess
 Feature: FlexAccess activation activity scaffold
   Scenario: Teacher can add the activity
     Given the following "courses" exist:

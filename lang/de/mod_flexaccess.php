@@ -15,25 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Boundary adapter from the activity to auth_flexaccess.
+ * Language strings for mod_flexaccess.
  *
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_flexaccess\local;
+defined('MOODLE_INTERNAL') || die();
 
-/** Activation orchestration boundary. */
-final class activation_manager {
-    /**
-     * Whether the user is currently a temporary FlexAccess user.
-     *
-     * @param int $userid User ID.
-     * @return bool
-     */
-    public static function is_temporary_user(int $userid): bool {
-        global $DB;
-        $account = $DB->get_record('auth_flexaccess_account', ['userid' => $userid], 'id,accounttype');
-        return $account && $account->accounttype === \auth_flexaccess\local\account_type::TEMPORARY_USER;
-    }
-}
+$string['pluginname'] = 'FlexAccess-Aktivierung';
+$string['modulename'] = 'FlexAccess-Aktivierung';
+$string['modulenameplural'] = 'FlexAccess-Aktivierungen';
+$string['pluginadministration'] = 'Administration der FlexAccess-Aktivierung';
+$string['profilefields'] = 'Zusätzliche Profilfelder';
+$string['profilefields_help'] = 'Stub: Hier werden später die freigegebenen Profilfeld-Kennungen für die Selbstaktivierung konfiguriert.';
+$string['stubnotice'] = 'FlexAccess-Aktivierungs-Stub: Das Selbstaktivierungsformular ist noch nicht implementiert.';
+$string['privacy:metadata'] = 'Die Aktivität speichert nur Konfiguration. Nutzerbezogene Aktivierungsdaten gehören auth_flexaccess.';

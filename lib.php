@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Core callbacks for mod_flexaccessactivation.
+ * Core callbacks for mod_flexaccess.
  *
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /** @param string $feature Feature name. @return mixed */
-function flexaccessactivation_supports($feature) {
+function flexaccess_supports($feature) {
     return match ($feature) {
         FEATURE_MOD_ARCHETYPE => MOD_ARCHETYPE_OTHER,
         FEATURE_GROUPS => false,
@@ -37,28 +37,28 @@ function flexaccessactivation_supports($feature) {
     };
 }
 
-/** @param stdClass $data Module data. @param mod_flexaccessactivation_mod_form|null $mform Form. @return int */
-function flexaccessactivation_add_instance($data, $mform = null): int {
+/** @param stdClass $data Module data. @param mod_flexaccess_mod_form|null $mform Form. @return int */
+function flexaccess_add_instance($data, $mform = null): int {
     global $DB;
     $data->timecreated = time();
     $data->timemodified = $data->timecreated;
-    return $DB->insert_record('flexaccessactivation', $data);
+    return $DB->insert_record('flexaccess', $data);
 }
 
-/** @param stdClass $data Module data. @param mod_flexaccessactivation_mod_form|null $mform Form. @return bool */
-function flexaccessactivation_update_instance($data, $mform = null): bool {
+/** @param stdClass $data Module data. @param mod_flexaccess_mod_form|null $mform Form. @return bool */
+function flexaccess_update_instance($data, $mform = null): bool {
     global $DB;
     $data->id = $data->instance;
     $data->timemodified = time();
-    return $DB->update_record('flexaccessactivation', $data);
+    return $DB->update_record('flexaccess', $data);
 }
 
 /** @param int $id Instance ID. @return bool */
-function flexaccessactivation_delete_instance($id): bool {
+function flexaccess_delete_instance($id): bool {
     global $DB;
-    if (!$DB->record_exists('flexaccessactivation', ['id' => $id])) {
+    if (!$DB->record_exists('flexaccess', ['id' => $id])) {
         return false;
     }
-    $DB->delete_records('flexaccessactivation', ['id' => $id]);
+    $DB->delete_records('flexaccess', ['id' => $id]);
     return true;
 }

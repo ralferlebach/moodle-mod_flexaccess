@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-08-17
+- **Renamed `mod_flexaccessactivation` → `mod_flexaccess`** (component, function prefix `flexaccess_*`, namespaces, capabilities `mod/flexaccess:*`, database table `flexaccess`, language files, XMLDB path). Installs to `mod/flexaccess`.
+- Version scheme moved to incremental `0.1.x` (release `0.1.1`).
+- Dependency documentation aligned to the ecosystem hard/cycle model (ADR-010).
+
 ## 0.1.0-alpha — 2026-08-17
 - Initial architecture scaffold.
 

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version definition for mod_flexaccessactivation.
+ * Plugin version definition for mod_flexaccess.
  *
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,11 +24,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_flexaccess';
-$plugin->version = 2026081702;
+$plugin->version = 2026081710;
 $plugin->requires = 2024100700;
 $plugin->supported = [405, 502];
 $plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '0.1.0-alpha3';
+$plugin->release = '0.1.1';
 $plugin->dependencies = [
     'auth_flexaccess' => 2026081700,
     'enrol_flexaccess' => 2026081700,

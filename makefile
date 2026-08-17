@@ -1,10 +1,10 @@
-# Fast local pre-check for mod_flexaccessactivation.
+# Fast local pre-check for mod_flexaccess.
 # The authoritative release gate is GitHub CI; `make check` is intentionally
 # a quick developer feedback loop and does not attempt to duplicate the full CI.
 THIS_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 PLUGIN_DIR ?= $(THIS_DIR)
 MOODLE_ROOT ?= $(abspath $(PLUGIN_DIR)/../..)
-PLUGIN_REL ?= mod/flexaccessactivation
+PLUGIN_REL ?= mod/flexaccess
 PHP ?= php
 PHPCS ?= phpcs
 
@@ -27,4 +27,4 @@ lint-phpdoc:
 	else echo "local_moodlecheck not installed; skipped."; fi
 
 phpunit:
-	@cd $(MOODLE_ROOT) && vendor/bin/phpunit --testsuite mod_flexaccessactivation_testsuite
+	@cd $(MOODLE_ROOT) && vendor/bin/phpunit --testsuite mod_flexaccess_testsuite

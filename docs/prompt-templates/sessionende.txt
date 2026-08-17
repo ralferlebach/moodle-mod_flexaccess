@@ -1,4 +1,4 @@
-# Session end — mod_flexaccessactivation
+# Session end — mod_flexaccess
 
 Before finishing the session:
 1. Create a new `docs/sessions/session-NNN.md`; never overwrite an earlier report.

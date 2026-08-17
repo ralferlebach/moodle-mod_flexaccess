@@ -1,4 +1,4 @@
-# mod_flexaccessactivation
+# mod_flexaccess
 
 Optional Moodle activity module scaffold that lets a FlexAccess `temporary user` initiate self-activation inside a course while preserving the same Moodle user ID.
 

@@ -77,4 +77,4 @@ jobs:
       - name: PHPUnit
         run: moodle-plugin-ci phpunit --fail-on-warning
       - name: Behat
-        run: moodle-plugin-ci behat --profile chrome --tags "@mod_flexaccessactivation" --start-servers
+        run: moodle-plugin-ci behat --profile chrome --tags "@mod_flexaccess" --start-servers
