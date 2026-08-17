@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.3 — 2026-08-17
+- Lockstep-Versionsschub auf 0.1.3 (keine funktionale Änderung; Modul-Iteration 2 folgt).
+
 ## 0.1.2 — 2026-08-17
 - Lockstep-Versionsschub auf 0.1.2 (keine funktionale Änderung im Modul). Modul-Scope unverändert P0 (Self-Activation).
 
