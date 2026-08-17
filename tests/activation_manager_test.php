@@ -21,14 +21,18 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_flexaccessactivation;
+namespace mod_flexaccess;
 
-/** Activation manager tests. */
+/**
+ * Activation manager tests.
+ */
 final class activation_manager_test extends \advanced_testcase {
-    /** A regular Moodle user is not a temporary FlexAccess user. */
+    /**
+     * A regular Moodle user is not a temporary FlexAccess user.
+     */
     public function test_regular_user_is_not_temporary(): void {
         $this->resetAfterTest();
         $user = $this->getDataGenerator()->create_user();
-        $this->assertFalse(\mod_flexaccessactivation\local\activation_manager::is_temporary_user($user->id));
+        $this->assertFalse(\mod_flexaccess\local\activation_manager::is_temporary_user($user->id));
     }
 }

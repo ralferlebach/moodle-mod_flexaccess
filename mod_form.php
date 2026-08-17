@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Instance form for mod_flexaccessactivation.
+ * Instance form for mod_flexaccess.
  *
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -25,18 +25,27 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/course/moodleform_mod.php');
 
-/** Activity settings form. */
-final class mod_flexaccessactivation_mod_form extends moodleform_mod {
-    /** Define form. */
+/**
+ * Activity settings form.
+ */
+final class mod_flexaccess_mod_form extends moodleform_mod {
+    /**
+     * Define form.
+     */
     public function definition(): void {
         $mform = $this->_form;
         $mform->addElement('text', 'name', get_string('name'), ['size' => 64]);
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
         $this->standard_intro_elements();
-        $mform->addElement('textarea', 'profilefieldsjson', get_string('profilefields', 'mod_flexaccessactivation'), ['rows' => 3, 'cols' => 60]);
+        $mform->addElement(
+            'textarea',
+            'profilefieldsjson',
+            get_string('profilefields', 'mod_flexaccess'),
+            ['rows' => 3, 'cols' => 60]
+        );
         $mform->setType('profilefieldsjson', PARAM_RAW_TRIMMED);
-        $mform->addHelpButton('profilefieldsjson', 'profilefields', 'mod_flexaccessactivation');
+        $mform->addHelpButton('profilefieldsjson', 'profilefields', 'mod_flexaccess');
         $this->standard_coursemodule_elements();
         $this->add_action_buttons();
     }

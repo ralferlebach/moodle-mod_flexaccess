@@ -1,4 +1,4 @@
-# mod_flexaccessactivation — Lastenheft
+# mod_flexaccess — Lastenheft
 
 **Verantwortung:** optionale Kursaktivität zur Selbstaktivierung eines `temporary user` auf derselben Moodle-`userid`; keine eigene Identitäts- oder Einschreibungsdomäne.
 
@@ -14,7 +14,7 @@ Das Projekt umfasst ausschließlich:
 1. `auth_flexaccess`
 2. `enrol_flexaccess`
 3. `tool_flexaccess` (systemweite Administration und Betrieb)
-4. `mod_flexaccessactivation` (optional installierbare Aktivität)
+4. `mod_flexaccess` (optional installierbare Aktivität)
 
 Nicht Bestandteil sind `local`, `block` und `availability`. Eine generalisierte Availability-Lösung ist ein separates Projekt.
 
@@ -89,7 +89,7 @@ Der Versand muss bei einer externen SMTP-Begrenzung von 100 E-Mails/Stunde zuver
 
 ## 11. Selbstaktivierungs-Aktivität
 
-`mod_flexaccessactivation` kann in Kursen eingebettet werden. Ein temporärer Nutzer kann dort Name, E-Mail und konfigurierte Profilfelder ergänzen und seine Identität bestätigen. Die Umwandlung erfolgt auf derselben Moodle-`userid`; Lernaktivitäten bleiben dadurch dem Konto zugeordnet. Die Aktivierung verändert nicht automatisch die Laufzeit der Kurseinschreibung.
+`mod_flexaccess` kann in Kursen eingebettet werden. Ein temporärer Nutzer kann dort Name, E-Mail und konfigurierte Profilfelder ergänzen und seine Identität bestätigen. Die Umwandlung erfolgt auf derselben Moodle-`userid`; Lernaktivitäten bleiben dadurch dem Konto zugeordnet. Die Aktivierung verändert nicht automatisch die Laufzeit der Kurseinschreibung.
 
 ## 12. Systemweite Administration (`tool_flexaccess`)
 
@@ -124,4 +124,4 @@ Das Tool besitzt **keine eigene Account-, Token-, Mailqueue- oder Policy-Datenha
 
 ## Abgrenzung: Zugangsschlüssel-Challenge
 
-Die optionale System-/Kurs-Zugangsschlüssel-Challenge schützt den **Eintritt** als `temporary user`. Ein Nutzer, der `mod_flexaccessactivation` erreicht, ist bereits eingeloggt und gegebenenfalls eingeschrieben. Die Selbstaktivierung fordert daher nicht erneut diesen gemeinsamen Zugangsschlüssel an und kennt dessen Hash nicht.
+Die optionale System-/Kurs-Zugangsschlüssel-Challenge schützt den **Eintritt** als `temporary user`. Ein Nutzer, der `mod_flexaccess` erreicht, ist bereits eingeloggt und gegebenenfalls eingeschrieben. Die Selbstaktivierung fordert daher nicht erneut diesen gemeinsamen Zugangsschlüssel an und kennt dessen Hash nicht.

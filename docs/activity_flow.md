@@ -1,6 +1,6 @@
 # Activity flow
 
-1. `require_login()` and `mod/flexaccessactivation:view`.
+1. `require_login()` and `mod/flexaccess:view`.
 2. Determine account type through `auth_flexaccess`.
 3. `authenticated user`: show configured success/info text; no account mutation.
 4. `temporary user`: show Moodle Form API form for name, E-Mail and allowlisted profile fields.

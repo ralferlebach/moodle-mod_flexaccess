@@ -15,16 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy provider for mod_flexaccessactivation.
+ * Privacy provider for mod_flexaccess.
  *
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_flexaccessactivation\privacy;
+namespace mod_flexaccess\privacy;
 
-/** The module stores instance configuration, not per-user activation data. */
+/**
+ * The module stores instance configuration, not per-user activation data.
+ */
 final class provider implements \core_privacy\local\metadata\null_provider {
-    /** @return string */
-    public static function get_reason(): string { return 'privacy:metadata'; }
+    /**
+     * Get the reason there is no personal data.
+     *
+     * @return string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
 }

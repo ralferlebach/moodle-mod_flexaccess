@@ -1,4 +1,4 @@
-@mod_flexaccessactivation
+@mod_flexaccess
 Feature: FlexAccess activation activity scaffold
   Scenario: Teacher can add the activity
     Given the following "courses" exist:
@@ -10,4 +10,4 @@ Feature: FlexAccess activation activity scaffold
     And I set the following fields to these values:
       | Name | Activate account |
     And I press "Save and display"
-    Then I should see "FlexAccess activation scaffold"
+    Then I should see "Nothing to activate here"
