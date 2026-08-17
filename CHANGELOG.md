@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.2 — 2026-08-17
+- Lockstep-Versionsschub auf 0.1.2 (keine funktionale Änderung im Modul). Modul-Scope unverändert P0 (Self-Activation).
+
 ## 0.1.1 — 2026-08-17
 - **Renamed `mod_flexaccessactivation` → `mod_flexaccess`** (component, function prefix `flexaccess_*`, namespaces, capabilities `mod/flexaccess:*`, database table `flexaccess`, language files, XMLDB path). Installs to `mod/flexaccess`.
 - Version scheme moved to incremental `0.1.x` (release `0.1.1`).
