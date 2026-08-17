@@ -34,7 +34,8 @@ final class mod_flexaccess_mod_form extends moodleform_mod {
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
         $this->standard_intro_elements();
-        $mform->addElement('textarea', 'profilefieldsjson', get_string('profilefields', 'mod_flexaccess'), ['rows' => 3, 'cols' => 60]);
+        $mform->addElement('textarea', 'profilefieldsjson',
+            get_string('profilefields', 'mod_flexaccess'), ['rows' => 3, 'cols' => 60]);
         $mform->setType('profilefieldsjson', PARAM_RAW_TRIMMED);
         $mform->addHelpButton('profilefieldsjson', 'profilefields', 'mod_flexaccess');
         $this->standard_coursemodule_elements();

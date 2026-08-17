@@ -44,5 +44,32 @@ echo $OUTPUT->heading(format_string($instance->name));
 if (trim($instance->intro) !== '') {
     echo $OUTPUT->box(format_module_intro('flexaccess', $instance, $cm->id), 'generalbox mod_introbox');
 }
-echo $OUTPUT->notification(get_string('stubnotice', 'mod_flexaccess'), 'info');
+$authavailable = class_exists('\\auth_flexaccess\\api');
+$accounttype = $authavailable ? \auth_flexaccess\api::classify_user($USER->id) : null;
+$state = \mod_flexaccess\local\view_state::resolve($accounttype, $authavailable);
+
+switch ($state) {
+    case \mod_flexaccess\local\view_state::TEMPORARY:
+        $mform = new \mod_flexaccess\form\self_activation_form($PAGE->url->out(false), ['id' => $cm->id]);
+        if ($data = $mform->get_data()) {
+            require_capability('mod/flexaccess:activate', $context);
+            $status = \auth_flexaccess\api::self_activate(
+                $USER->id, $data->email, $data->firstname ?? '', $data->lastname ?? '');
+            $type = ($status === 'activated') ? 'success' : 'error';
+            echo $OUTPUT->notification(get_string('sa:' . $status, 'mod_flexaccess'), $type);
+            if ($status !== 'activated') {
+                $mform->display();
+            }
+        } else {
+            echo $OUTPUT->notification(get_string('view:temporary', 'mod_flexaccess'), 'info');
+            $mform->display();
+        }
+        break;
+    case \mod_flexaccess\local\view_state::AUTHENTICATED:
+        echo $OUTPUT->notification(get_string('view:authenticated', 'mod_flexaccess'), 'info');
+        break;
+    default:
+        echo $OUTPUT->notification(get_string('view:unavailable', 'mod_flexaccess'), 'warning');
+}
+
 echo $OUTPUT->footer();
