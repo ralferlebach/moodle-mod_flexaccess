@@ -28,6 +28,9 @@ use mod_flexaccess\local\view_state;
 
 /**
  * View-state tests.
+ *
+ * @package    mod_flexaccess
+ * @covers     \mod_flexaccess\local\view_state
  */
 final class view_state_test extends \advanced_testcase {
     /**

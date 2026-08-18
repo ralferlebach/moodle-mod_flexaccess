@@ -31,6 +31,8 @@ require_once($CFG->libdir . '/formslib.php');
 
 /**
  * Captures the e-mail and name for in-course self-activation.
+ *
+ * @package    mod_flexaccess
  */
 class self_activation_form extends \moodleform {
     /**

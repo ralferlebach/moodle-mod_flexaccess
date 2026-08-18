@@ -17,6 +17,7 @@
 /**
  * Core callbacks for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,6 +28,8 @@
  *
  * @param string $feature Feature name.
  * @return mixed
+ *
+ * @package    mod_flexaccess
  */
 function flexaccess_supports($feature) {
     return match ($feature) {
@@ -47,6 +50,8 @@ function flexaccess_supports($feature) {
  * @param stdClass $data Module data.
  * @param mod_flexaccess_mod_form|null $mform Form.
  * @return int
+ *
+ * @package    mod_flexaccess
  */
 function flexaccess_add_instance($data, $mform = null): int {
     global $DB;
@@ -61,6 +66,8 @@ function flexaccess_add_instance($data, $mform = null): int {
  * @param stdClass $data Module data.
  * @param mod_flexaccess_mod_form|null $mform Form.
  * @return bool
+ *
+ * @package    mod_flexaccess
  */
 function flexaccess_update_instance($data, $mform = null): bool {
     global $DB;
@@ -74,6 +81,8 @@ function flexaccess_update_instance($data, $mform = null): bool {
  *
  * @param int $id Instance ID.
  * @return bool
+ *
+ * @package    mod_flexaccess
  */
 function flexaccess_delete_instance($id): bool {
     global $DB;

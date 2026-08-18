@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.18 — 2026-08-17
+- **Linting robust fuer aeltere moodle-cs gemacht (die lokale `make check`-Umgebung nutzt eine strengere/aeltere moodle-cs als die CI):** `@package`-Tag in jedem Datei-, Klassen-/Interface-/Trait- und Top-Level-Funktions-Docblock ergaenzt (aeltere moodle-cs verlangt dies ueberall; neuere ab 3.6 hat es gelockert). Test-Klassen erhielten `@covers` auf die jeweils geprueften Klassen (behebt die `missing coverage information`-Warnungen). **Gegengeprueft:** die echte CI (moodle-plugin-ci 4.5.11) meldet weiterhin 0 Verstoesse, PHPUnit auf Moodle 5.3dev bleibt gruen.
+
 ## 0.1.17 — 2026-08-17
 - **Real auf Moodle 5.3dev (branch 503, PG17) verifiziert — PHPUnit gruen, phpcs 0/0.** Dabei behobener echter Installationsfehler: Aktivitaetsmodul-Sprachdatei von lang/*/mod_flexaccess.php in lang/*/flexaccess.php umbenannt — Moodle prueft fuer Module lang/en/<modulename>.php (bare name), sonst 'Missing mandatory en language pack'. Fehlende Capability-Sprachstrings (flexaccess:addinstance, flexaccess:view, flexaccess:activate) ergaenzt; install.xml ins kanonische XMLDB-Format regeneriert.
 - **CI grün gemacht (phpcs, real verifiziert mit moodlehq/moodle-cs v3.7):** Sprachdateien alphabetisch sortiert + `@package` ergänzt (Moodle LangFilesOrdering); einzeilige Docblocks in Mehrzeilenform mit Beschreibungszeile überführt; Multiline-Funktionsaufrufe per phpcbf normalisiert; unnötige `MOODLE_INTERNAL`-Checks entfernt; Konstanten-Docblocks ergänzt.

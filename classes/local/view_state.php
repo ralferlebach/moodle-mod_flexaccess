@@ -30,6 +30,8 @@ namespace mod_flexaccess\local;
 
 /**
  * Resolves the activity view state.
+ *
+ * @package    mod_flexaccess
  */
 final class view_state {
     /**

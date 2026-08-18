@@ -17,6 +17,7 @@
 /**
  * Boundary adapter from the activity to auth_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,6 +26,8 @@ namespace mod_flexaccess\local;
 
 /**
  * Activation orchestration boundary.
+ *
+ * @package    mod_flexaccess
  */
 final class activation_manager {
     /**

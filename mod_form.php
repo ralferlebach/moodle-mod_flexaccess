@@ -17,6 +17,7 @@
 /**
  * Instance form for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,6 +28,8 @@ require_once($CFG->dirroot . '/course/moodleform_mod.php');
 
 /**
  * Activity settings form.
+ *
+ * @package    mod_flexaccess
  */
 final class mod_flexaccess_mod_form extends moodleform_mod {
     /**

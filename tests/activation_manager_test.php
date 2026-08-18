@@ -17,6 +17,7 @@
 /**
  * Tests for the FlexAccess activation activity boundary.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,6 +26,9 @@ namespace mod_flexaccess;
 
 /**
  * Activation manager tests.
+ *
+ * @package    mod_flexaccess
+ * @covers     \mod_flexaccess\local\activation_manager
  */
 final class activation_manager_test extends \advanced_testcase {
     /**

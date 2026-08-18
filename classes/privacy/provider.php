@@ -17,6 +17,7 @@
 /**
  * Privacy provider for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,6 +26,8 @@ namespace mod_flexaccess\privacy;
 
 /**
  * The module stores instance configuration, not per-user activation data.
+ *
+ * @package    mod_flexaccess
  */
 final class provider implements \core_privacy\local\metadata\null_provider {
     /**
