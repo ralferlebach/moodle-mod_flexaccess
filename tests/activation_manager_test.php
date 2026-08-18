@@ -32,6 +32,19 @@ namespace mod_flexaccess;
  */
 final class activation_manager_test extends \advanced_testcase {
     /**
+     * Skip when the required sibling plugin is not installed (per-plugin CI).
+     *
+     * @return void
+     */
+    protected function setUp(): void {
+        parent::setUp();
+        global $DB;
+        if (!$DB->get_manager()->table_exists('auth_flexaccess_account')) {
+            $this->markTestSkipped('Requires the auth_flexaccess sibling plugin to be installed.');
+        }
+    }
+
+    /**
      * A regular Moodle user is not a temporary FlexAccess user.
      */
     public function test_regular_user_is_not_temporary(): void {
