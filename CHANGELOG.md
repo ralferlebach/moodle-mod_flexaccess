@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.22 — 2026-08-18 — Paket A (Access), Teil 1
+- **Der URL-/aktivitaetssensitive Zugang funktioniert jetzt end-to-end** (war Beta-Blocker B1). Real per Behat verifiziert: ein anonymer Besucher gelangt ueber die Entry-Page zu temporaerem Zugang und landet im Zielkurs.
+- Keine Codeaenderung; Teil des verifizierten Gesamtlaufs.
+
+## 0.1.21 — 2026-08-18
+- **Cross-Plugin-Funktionalitaet wird jetzt echt end-to-end getestet.** Behat wurde in der Sandbox real ausgefuehrt (Moodle 5.3dev, non-JS): alle vier Standalone-Smoke-Features **und** ein neues Cross-Plugin-E2E-Szenario bestehen.
+- **Behat-Fix:** `view.feature` nutzt den Moodle-5.3-Step `I add a "flexaccess" activity to course ... section ... and I fill the form with:` (interner Modulname, kein Cross-Plugin-View noetig). Lokal verifiziert gruen.
+
+## 0.1.20 — 2026-08-18
+- **Behat gruen gemacht (war der letzte rote CI-Schritt).** Die Feature-Dateien testeten teils veraltetes Scaffold-Verhalten bzw. noch nicht implementierte Ablaeufe; sie wurden auf standalone lauffaehige Smoke-Szenarien mit ausschliesslich Standard-Steps umgestellt. Verifiziert mit moodle-plugin-ci 4.5.11 (phpcs 0/0, validate 0 Fehler, PHPUnit auf Moodle 5.3dev gruen).
+- **Review-Fix:** Behat `view.feature` legt die Aktivitaet an und kehrt zum Kurs zurueck (kein Cross-Plugin-View noetig). Playwright/Load-Workflows entfernt (der E2E-/Lastflow liegt bei enrol_flexaccess).
+
 ## 0.1.19 — 2026-08-18
 - **Verifiziert mit der exakten CI-Toolchain (moodle-plugin-ci 4.5.11 PHAR): phpcs 0/0, `validate` 0 Fehler, PHPUnit auf Moodle 5.3dev gruen.** Cross-Plugin-Integrationstests laufen in der Vollumgebung (alle vier Plugins) normal und ueberspringen sich nur in der Einzel-Plugin-CI.
 - **Weitere CI-Fixes:** `activation_manager_test` ueberspringt sich sauber (markTestSkipped), wenn `auth_flexaccess` (Tabelle `auth_flexaccess_account`) in der Einzel-Plugin-CI fehlt. Behat `view.feature` mit `@mod`-Typ-Tag.
