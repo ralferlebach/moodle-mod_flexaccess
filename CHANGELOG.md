@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0 — 2026-08-19 — Beta-Schwelle: CI-Fix, Maturity BETA, Versions-Neustart
+- Versionsschema auf `2026081900` / Release `0.9.0` gesetzt, Maturity auf **MATURITY_BETA** angehoben; Cross-Plugin-Dependencies auf `2026081900` gezogen.
+- **CI-Fix:** fehlende `@param $reference` in den Docblocks von `api::search_accounts` und `api::build_account_filter` ergaenzt (PHPDoc-Checker).
+- Hinweis: Zwei aus dem erneuten Audit stammende Rest-P0 (Klartext-Token in der Mailqueue; generelles atomares Rate-Limit fuer anonyme Temporary-Erzeugung) sind als erste Beta-Haertungswelle eingeplant.
+
 ## 0.1.39 — 2026-08-19 — Konfigurierbare Rate-Limits, Cleanup, i18n, Backup/Restore, CI-Härtung
 - **§44 Backup/Restore:** vollstaendige moodle2-Backup-/Restore-Unterstuetzung ergaenzt. Kernursache war, dass `flexaccess_supports(FEATURE_BACKUP_MOODLE2)` `false` lieferte — die Aktivitaet wurde nie gesichert; jetzt `true`. Neuer Test-Generator und ein Backup/Restore-Roundtrip-Test.
 - **§3 Cleanup:** ungenutzte Klasse `activation_manager` (+ Test) entfernt.
