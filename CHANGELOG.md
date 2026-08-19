@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.39 — 2026-08-19 — Konfigurierbare Rate-Limits, Cleanup, i18n, Backup/Restore, CI-Härtung
+- **§44 Backup/Restore:** vollstaendige moodle2-Backup-/Restore-Unterstuetzung ergaenzt. Kernursache war, dass `flexaccess_supports(FEATURE_BACKUP_MOODLE2)` `false` lieferte — die Aktivitaet wurde nie gesichert; jetzt `true`. Neuer Test-Generator und ein Backup/Restore-Roundtrip-Test.
+- **§3 Cleanup:** ungenutzte Klasse `activation_manager` (+ Test) entfernt.
+
 ## 0.1.38 — 2026-08-19 — Re-login-fähige Konversion, Transaktionen, Mailqueue-Limit, Referenzsuche (§7/§8/§13/§16/§36)
 - **§7:** Self-Activation-Formular hat ein Passwortfeld mit Policy-Pruefung (`check_password_policy`); `view.php` reicht das Passwort an `self_activate` durch. Neue Strings `sa:password`/`sa:password_help`.
 

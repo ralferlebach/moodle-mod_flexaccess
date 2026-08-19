@@ -39,7 +39,7 @@ function flexaccess_supports($feature) {
         FEATURE_MOD_INTRO => true,
         FEATURE_SHOW_DESCRIPTION => true,
         FEATURE_COMPLETION_TRACKS_VIEWS => true,
-        FEATURE_BACKUP_MOODLE2 => false,
+        FEATURE_BACKUP_MOODLE2 => true,
         default => null,
     };
 }
