@@ -57,6 +57,7 @@ switch ($state) {
             $status = \auth_flexaccess\api::self_activate(
                 $USER->id,
                 $data->email,
+                $data->password,
                 $data->firstname ?? '',
                 $data->lastname ?? ''
             );

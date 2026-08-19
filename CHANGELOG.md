@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.38 — 2026-08-19 — Re-login-fähige Konversion, Transaktionen, Mailqueue-Limit, Referenzsuche (§7/§8/§13/§16/§36)
+- **§7:** Self-Activation-Formular hat ein Passwortfeld mit Policy-Pruefung (`check_password_policy`); `view.php` reicht das Passwort an `self_activate` durch. Neue Strings `sa:password`/`sa:password_help`.
+
 ## 0.1.37 — 2026-08-19 — Teilnehmerlisten-Sichtbarkeit durchgesetzt (§35, P0)
 - Keine Codeaenderung.
 
