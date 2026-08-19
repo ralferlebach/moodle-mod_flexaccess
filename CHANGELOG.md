@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.5 — 2026-08-19 — Welle 3 Strom E: administrierbare Kategorie-Policies (P0 #8) + Cleanup
+- Keine Codeaenderung.
+
 ## 0.9.4 — 2026-08-19 — CI-Härtung + Upgrade-Robustheit (Plugin-Isolation, PHPDoc, reset_role_capabilities)
 - Keine Codeaenderung.
 
