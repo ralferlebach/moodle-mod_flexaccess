@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.17 — 2026-08-20 — Fix: Cross-Plugin-Mailqueue (Standalone-CI) + saubere API-Grenze
+- Keine Codeaenderung.
+
+## 0.9.16 — 2026-08-20 — P2-Cleanup: Performance, Reliability, i18n
+- Keine Codeaenderung.
+
 ## 0.9.15 — 2026-08-20 — RC-Gates (Review 0.9.13): 4 P0 + Reliability + Doku/CI-Sync
 - Cleanup (§13): halbfertiges `profilefieldsjson`-Formularfeld + Scaffold-Hilfetexte entfernt (DB-Spalte/Backup bleiben, um Backup/Restore nicht zu brechen).
 
