@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.13 — 2026-08-20 — P2-Batch: Performance, Retention, Supply-Chain, Doku
+- Keine Codeaenderung.
+
 ## 0.9.12 — 2026-08-20 — P1/P2-Härtung: Security (a) + Identity/State (b) + Cleanup/Docs (c)
 - **(c) Cleanup:** tote `stub*`-Strings entfernt; Makefile-Bereinigung.
 
