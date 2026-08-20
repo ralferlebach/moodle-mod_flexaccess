@@ -61,9 +61,10 @@ switch ($state) {
                 $data->firstname ?? '',
                 $data->lastname ?? ''
             );
-            $type = ($status === 'activated') ? 'success' : 'error';
+            $ok = ($status === 'activated' || $status === 'verificationsent');
+            $type = $ok ? 'success' : 'error';
             echo $OUTPUT->notification(get_string('sa:' . $status, 'mod_flexaccess'), $type);
-            if ($status !== 'activated') {
+            if (!$ok) {
                 $mform->display();
             }
         } else {

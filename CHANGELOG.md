@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.11 — 2026-08-20 — RC-Hardening: P0#6 (Admin-Conversion über Mailqueue)
+- Keine Codeaenderung.
+
+## 0.9.10 — 2026-08-20 — RC-Hardening: 7/8 P0 aus dem 0.9.8-Review
+- **P0#5 (Anzeige):** `view.php` behandelt den neuen Status `verificationsent` als Erfolg; neue Strings `sa:verificationsent`, `sa:nottemporary`, `sa:locked`.
+
+**Offen (bewusst gestaffelt):** P0#6 — Admin-Conversion versendet die Passwort-Mail noch via Core `setnew_password_and_mail` (umgeht die FlexAccess-Mailqueue/Ratelimit). Fix erfordert einen neuen queued 'set-password'-Mailfluss.
+
 ## 0.9.9 — 2026-08-19 — Welle 4 Abschluss: Accessibility-Gate + Docs-SSOT & Traceability
 - Keine Codeaenderung.
 
