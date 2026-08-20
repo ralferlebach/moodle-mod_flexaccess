@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.15 — 2026-08-20 — RC-Gates (Review 0.9.13): 4 P0 + Reliability + Doku/CI-Sync
+- Cleanup (§13): halbfertiges `profilefieldsjson`-Formularfeld + Scaffold-Hilfetexte entfernt (DB-Spalte/Backup bleiben, um Backup/Restore nicht zu brechen).
+
 ## 0.9.14 — 2026-08-20 — Einladungen: personengebundenes Single-Use-Modell (Review §9)
 - Keine Codeaenderung.
 
