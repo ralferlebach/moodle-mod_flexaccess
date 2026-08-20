@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.7 — 2026-08-19 — Welle 5: Einladungskampagnen (§49)
+- Keine Codeaenderung.
+
+## 0.9.6 — 2026-08-19 — Welle 4: Persistence-Follow-up (schließt P0 #9 vollständig)
+- Keine Codeaenderung.
+
 ## 0.9.5 — 2026-08-19 — Welle 3 Strom E: administrierbare Kategorie-Policies (P0 #8) + Cleanup
 - Keine Codeaenderung.
 
