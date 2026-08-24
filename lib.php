@@ -17,13 +17,20 @@
 /**
  * Core callbacks for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
-/** @param string $feature Feature name. @return mixed */
+/**
+ * Declare which activity features are supported.
+ *
+ * @param string $feature Feature name.
+ * @return mixed
+ *
+ * @package    mod_flexaccess
+ */
 function flexaccess_supports($feature) {
     return match ($feature) {
         FEATURE_MOD_ARCHETYPE => MOD_ARCHETYPE_OTHER,
@@ -32,12 +39,20 @@ function flexaccess_supports($feature) {
         FEATURE_MOD_INTRO => true,
         FEATURE_SHOW_DESCRIPTION => true,
         FEATURE_COMPLETION_TRACKS_VIEWS => true,
-        FEATURE_BACKUP_MOODLE2 => false,
+        FEATURE_BACKUP_MOODLE2 => true,
         default => null,
     };
 }
 
-/** @param stdClass $data Module data. @param mod_flexaccess_mod_form|null $mform Form. @return int */
+/**
+ * Create a new activity instance.
+ *
+ * @param stdClass $data Module data.
+ * @param mod_flexaccess_mod_form|null $mform Form.
+ * @return int
+ *
+ * @package    mod_flexaccess
+ */
 function flexaccess_add_instance($data, $mform = null): int {
     global $DB;
     $data->timecreated = time();
@@ -45,7 +60,15 @@ function flexaccess_add_instance($data, $mform = null): int {
     return $DB->insert_record('flexaccess', $data);
 }
 
-/** @param stdClass $data Module data. @param mod_flexaccess_mod_form|null $mform Form. @return bool */
+/**
+ * Update an existing activity instance.
+ *
+ * @param stdClass $data Module data.
+ * @param mod_flexaccess_mod_form|null $mform Form.
+ * @return bool
+ *
+ * @package    mod_flexaccess
+ */
 function flexaccess_update_instance($data, $mform = null): bool {
     global $DB;
     $data->id = $data->instance;
@@ -53,7 +76,14 @@ function flexaccess_update_instance($data, $mform = null): bool {
     return $DB->update_record('flexaccess', $data);
 }
 
-/** @param int $id Instance ID. @return bool */
+/**
+ * Delete an activity instance.
+ *
+ * @param int $id Instance ID.
+ * @return bool
+ *
+ * @package    mod_flexaccess
+ */
 function flexaccess_delete_instance($id): bool {
     global $DB;
     if (!$DB->record_exists('flexaccess', ['id' => $id])) {

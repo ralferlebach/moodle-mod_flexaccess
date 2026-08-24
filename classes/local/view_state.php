@@ -28,16 +28,28 @@
 
 namespace mod_flexaccess\local;
 
-/** Resolves the activity view state. */
+/**
+ * Resolves the activity view state.
+ *
+ * @package    mod_flexaccess
+ */
 final class view_state {
-    /** Viewer is already an authenticated user. */
+    /**
+     * Viewer is already an authenticated user.
+     */
     public const AUTHENTICATED = 'authenticated';
-    /** Viewer is a temporary user who may self-activate. */
+    /**
+     * Viewer is a temporary user who may self-activate.
+     */
     public const TEMPORARY = 'temporary';
-    /** The auth facade is unavailable. */
+    /**
+     * The auth facade is unavailable.
+     */
     public const UNAVAILABLE = 'unavailable';
 
-    /** The account-type value denoting a temporary user (auth_flexaccess account_type). */
+    /**
+     * The account-type value denoting a temporary user (auth_flexaccess account_type).
+     */
     private const TEMPORARY_USER = 'temporary user';
 
     /**

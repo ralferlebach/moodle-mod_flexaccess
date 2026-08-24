@@ -17,15 +17,36 @@
 /**
  * Tests for the FlexAccess activation activity boundary.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace mod_flexaccess;
 
-/** Activation manager tests. */
+/**
+ * Activation manager tests.
+ *
+ * @package    mod_flexaccess
+ * @covers     \mod_flexaccess\local\activation_manager
+ */
 final class activation_manager_test extends \advanced_testcase {
-    /** A regular Moodle user is not a temporary FlexAccess user. */
+    /**
+     * Skip when the required sibling plugin is not installed (per-plugin CI).
+     *
+     * @return void
+     */
+    protected function setUp(): void {
+        parent::setUp();
+        global $DB;
+        if (!$DB->get_manager()->table_exists('auth_flexaccess_account')) {
+            $this->markTestSkipped('Requires the auth_flexaccess sibling plugin to be installed.');
+        }
+    }
+
+    /**
+     * A regular Moodle user is not a temporary FlexAccess user.
+     */
     public function test_regular_user_is_not_temporary(): void {
         $this->resetAfterTest();
         $user = $this->getDataGenerator()->create_user();

@@ -17,28 +17,34 @@
 /**
  * Language strings for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'FlexAccess activation';
+$string['flexaccess:activate'] = 'Self-activate a FlexAccess temporary account';
+$string['flexaccess:addinstance'] = 'Add a new FlexAccess activation activity';
+$string['flexaccess:view'] = 'View the FlexAccess activation activity';
 $string['modulename'] = 'FlexAccess activation';
 $string['modulenameplural'] = 'FlexAccess activations';
 $string['pluginadministration'] = 'FlexAccess activation administration';
-$string['profilefields'] = 'Additional profile fields';
-$string['profilefields_help'] = 'Scaffold: later this will contain the allowlisted profile-field identifiers requested during self-activation.';
-$string['stubnotice'] = 'FlexAccess activation scaffold: the self-activation form is not implemented yet.';
+$string['pluginname'] = 'FlexAccess activation';
 $string['privacy:metadata'] = 'The activity stores only configuration. User activation data is owned by auth_flexaccess.';
+$string['sa:activated'] = 'Your account has been activated. Your results and access are kept.';
+$string['sa:email'] = 'E-mail address';
+$string['sa:emailtaken'] = 'That e-mail address is already in use. Please use a different one.';
+$string['sa:firstname'] = 'First name';
+$string['sa:invalidemail'] = 'Please enter a valid e-mail address.';
+$string['sa:lastname'] = 'Last name';
+$string['sa:locked'] = 'Another activation is already in progress. Please try again in a moment.';
+$string['sa:notapplicable'] = 'Your account does not require activation.';
+$string['sa:nottemporary'] = 'This account cannot be activated because it is not an active temporary account.';
+$string['sa:password'] = 'Choose a password';
+$string['sa:password_help'] = 'Set a password so you can log back in to this account later with your email address.';
+$string['sa:submit'] = 'Activate my account';
+$string['sa:verificationsent'] = 'Almost done — we have emailed you an activation link. Follow it to keep your account permanently.';
 $string['view:authenticated'] = 'Your account is already a full account. Nothing to activate here.';
 $string['view:temporary'] = 'You are using temporary access. Self-activation to keep your results will be available here.';
 $string['view:unavailable'] = 'FlexAccess is not fully installed, so self-activation is unavailable.';
-$string['sa:email'] = 'E-mail address';
-$string['sa:firstname'] = 'First name';
-$string['sa:lastname'] = 'Last name';
-$string['sa:submit'] = 'Activate my account';
-$string['sa:activated'] = 'Your account has been activated. Your results and access are kept.';
-$string['sa:emailtaken'] = 'That e-mail address is already in use. Please use a different one.';
-$string['sa:invalidemail'] = 'Please enter a valid e-mail address.';
-$string['sa:notapplicable'] = 'Your account does not require activation.';

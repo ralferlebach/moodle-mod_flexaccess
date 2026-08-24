@@ -15,27 +15,39 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy provider for mod_flexaccess.
+ * Test data generator for mod_flexaccess.
  *
  * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_flexaccess\privacy;
-
 /**
- * The module stores instance configuration, not per-user activation data.
+ * Creates FlexAccess activity instances for tests.
  *
  * @package    mod_flexaccess
  */
-final class provider implements \core_privacy\local\metadata\null_provider {
+class mod_flexaccess_generator extends testing_module_generator {
     /**
-     * Get the reason there is no personal data.
+     * Create a FlexAccess activity instance.
      *
-     * @return string
+     * @param array|\stdClass|null $record Instance overrides.
+     * @param array|null $options Generator options.
+     * @return \stdClass The created instance record.
      */
-    public static function get_reason(): string {
-        return 'privacy:metadata';
+    public function create_instance($record = null, ?array $options = null) {
+        $record = (object) (array) $record;
+        $defaults = [
+            'name' => 'FlexAccess',
+            'intro' => '',
+            'introformat' => FORMAT_HTML,
+            'profilefieldsjson' => '{}',
+        ];
+        foreach ($defaults as $field => $value) {
+            if (!isset($record->$field)) {
+                $record->$field = $value;
+            }
+        }
+        return parent::create_instance($record, (array) $options);
     }
 }

@@ -29,7 +29,11 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->libdir . '/formslib.php');
 
-/** Captures the e-mail and name for in-course self-activation. */
+/**
+ * Captures the e-mail and name for in-course self-activation.
+ *
+ * @package    mod_flexaccess
+ */
 class self_activation_form extends \moodleform {
     /**
      * Define the form.
@@ -49,9 +53,30 @@ class self_activation_form extends \moodleform {
         $mform->addElement('text', 'lastname', get_string('sa:lastname', 'mod_flexaccess'));
         $mform->setType('lastname', PARAM_NOTAGS);
 
+        $mform->addElement('passwordunmask', 'password', get_string('sa:password', 'mod_flexaccess'));
+        $mform->setType('password', PARAM_RAW);
+        $mform->addRule('password', get_string('required'), 'required', null, 'client');
+        $mform->addHelpButton('password', 'sa:password', 'mod_flexaccess');
+
         $mform->addElement('hidden', 'id', $this->_customdata['id']);
         $mform->setType('id', PARAM_INT);
 
         $this->add_action_buttons(false, get_string('sa:submit', 'mod_flexaccess'));
+    }
+
+    /**
+     * Validate the submitted e-mail and password.
+     *
+     * @param array $data Submitted data.
+     * @param array $files Submitted files.
+     * @return array Validation errors keyed by element name.
+     */
+    public function validation($data, $files): array {
+        $errors = parent::validation($data, $files);
+        $errmsg = '';
+        if (!check_password_policy($data['password'] ?? '', $errmsg)) {
+            $errors['password'] = $errmsg;
+        }
+        return $errors;
     }
 }

@@ -26,20 +26,31 @@ namespace mod_flexaccess;
 
 use mod_flexaccess\local\view_state;
 
-/** View-state tests. */
+/**
+ * View-state tests.
+ *
+ * @package    mod_flexaccess
+ * @covers     \mod_flexaccess\local\view_state
+ */
 final class view_state_test extends \advanced_testcase {
-    /** A temporary user gets the self-activation state. */
+    /**
+     * A temporary user gets the self-activation state.
+     */
     public function test_temporary_user(): void {
         $this->assertSame(view_state::TEMPORARY, view_state::resolve('temporary user', true));
     }
 
-    /** An authenticated user (or any non-temporary type) gets the authenticated state. */
+    /**
+     * An authenticated user (or any non-temporary type) gets the authenticated state.
+     */
     public function test_authenticated_user(): void {
         $this->assertSame(view_state::AUTHENTICATED, view_state::resolve('authenticated user', true));
         $this->assertSame(view_state::AUTHENTICATED, view_state::resolve(null, true));
     }
 
-    /** Without the auth facade, the state is unavailable regardless of type. */
+    /**
+     * Without the auth facade, the state is unavailable regardless of type.
+     */
     public function test_unavailable_without_auth(): void {
         $this->assertSame(view_state::UNAVAILABLE, view_state::resolve('temporary user', false));
         $this->assertSame(view_state::UNAVAILABLE, view_state::resolve(null, false));

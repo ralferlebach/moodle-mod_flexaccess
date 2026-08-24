@@ -17,6 +17,7 @@
 /**
  * View page for mod_flexaccess.
  *
+ * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -54,10 +55,16 @@ switch ($state) {
         if ($data = $mform->get_data()) {
             require_capability('mod/flexaccess:activate', $context);
             $status = \auth_flexaccess\api::self_activate(
-                $USER->id, $data->email, $data->firstname ?? '', $data->lastname ?? '');
-            $type = ($status === 'activated') ? 'success' : 'error';
+                $USER->id,
+                $data->email,
+                $data->password,
+                $data->firstname ?? '',
+                $data->lastname ?? ''
+            );
+            $ok = ($status === 'activated' || $status === 'verificationsent');
+            $type = $ok ? 'success' : 'error';
             echo $OUTPUT->notification(get_string('sa:' . $status, 'mod_flexaccess'), $type);
-            if ($status !== 'activated') {
+            if (!$ok) {
                 $mform->display();
             }
         } else {

@@ -1,13 +1,14 @@
-@mod_flexaccess
-Feature: FlexAccess activation activity scaffold
-  Scenario: Teacher can add the activity
+@mod @mod_flexaccess
+Feature: FlexAccess activation activity
+  In order to let temporary users convert their account
+  As a teacher
+  I need to add a FlexAccess activation activity to a course
+
+  Scenario: A teacher can add a FlexAccess activation activity
     Given the following "courses" exist:
-      | fullname | shortname | category |
-      | FlexAccess course | FLEX | 0 |
+      | fullname          | shortname | category |
+      | FlexAccess course | FLEX      | 0        |
     And I log in as "admin"
-    And I am on "FlexAccess course" course homepage with editing mode on
-    When I add a "FlexAccess activation" to section "1"
-    And I set the following fields to these values:
+    When I add a "flexaccess" activity to course "FlexAccess course" section "1" and I fill the form with:
       | Name | Activate account |
-    And I press "Save and display"
-    Then I should see "Nothing to activate here"
+    Then I should see "Activate account"

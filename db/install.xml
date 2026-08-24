@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/flexaccess/db" VERSION="2026081700" COMMENT="XMLDB file for mod_flexaccess">
+<XMLDB PATH="mod/flexaccess/db" VERSION="2026081700" COMMENT="XMLDB file for mod_flexaccess"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
   <TABLES>
     <TABLE NAME="flexaccess" COMMENT="FlexAccess self-activation activity instances">
       <FIELDS>
