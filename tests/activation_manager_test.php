@@ -24,12 +24,14 @@
 
 namespace mod_flexaccess;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+
 /**
  * Activation manager tests.
  *
  * @package    mod_flexaccess
- * @covers     \mod_flexaccess\local\activation_manager
  */
+#[CoversClass(\mod_flexaccess\local\activation_manager::class)]
 final class activation_manager_test extends \advanced_testcase {
     /**
      * Skip when the required sibling plugin is not installed (per-plugin CI).

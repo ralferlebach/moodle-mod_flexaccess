@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.29 — 2026-08-25 — P2: PHPUnit-11-Migration + Pakete ohne .git
+- `@covers`-Doc-Annotationen der Testklassen auf `#[CoversClass(...)]`-Attribute umgestellt (keine PHPUnit-Deprecations mehr). `.git`-Verzeichnisse aus dem Paket entfernt. Versions-Gleichschritt auf `2026082406`.
+
 ## 0.9.28 — 2026-08-25 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082405`.
 

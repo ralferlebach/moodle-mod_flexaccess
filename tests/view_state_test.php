@@ -24,14 +24,15 @@
 
 namespace mod_flexaccess;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use mod_flexaccess\local\view_state;
 
 /**
  * View-state tests.
  *
  * @package    mod_flexaccess
- * @covers     \mod_flexaccess\local\view_state
  */
+#[CoversClass(\mod_flexaccess\local\view_state::class)]
 final class view_state_test extends \advanced_testcase {
     /**
      * A temporary user gets the self-activation state.
