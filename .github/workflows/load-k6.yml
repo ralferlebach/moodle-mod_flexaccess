@@ -1,6 +1,6 @@
-name: Load test (JMeter)
+name: Load test (k6)
 
-# Read-endpoint load test (AP6). Manual only. Two modes:
+# Read-endpoint load test (AP6) - k6 twin of load.yml. Manual only. Two modes:
 #
 #   mode=selfcontained (default) — the job builds a fresh Moodle, installs the
 #     plugin, seeds a large map and load-tests its own localhost. Nothing has to
@@ -42,7 +42,7 @@ on:
         required: false
 
 jobs:
-  jmeter:
+  k6:
     runs-on: ubuntu-latest
 
     services:
@@ -139,26 +139,21 @@ jobs:
             echo "cmid=${{ steps.selfcontained.outputs.cmid }}" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Set up JMeter
-        run: |
-          curl -sSL https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz -o jmeter.tgz
-          tar xzf jmeter.tgz
+      - name: Set up k6
+        uses: grafana/setup-k6-action@v1
 
-      # A plateau run: threads ramp up, then stay concurrently active for
-      # `duration` seconds (scheduler + continue_forever in the plan), instead of
-      # a fixed small loop count where early threads finish before the last start.
-      - name: Run load plan
+      # A plateau run: VUS ramp up, then stay concurrently active for `duration` seconds.
+      - name: Run load script
         run: |
-          apache-jmeter-5.6.3/bin/jmeter -n \
-            -t plugin/tests/load/flexaccess-read-endpoints.jmx \
-            -Jbase_url='${{ steps.params.outputs.base_url }}' \
-            -Jtoken='${{ steps.params.outputs.token }}' \
-            -Jworkspaceid='${{ steps.params.outputs.workspaceid }}' \
-            -Jcmid='${{ steps.params.outputs.cmid }}' \
-            -Jthreads='${{ github.event.inputs.threads }}' \
-            -Jrampup='${{ github.event.inputs.rampup }}' \
-            -Jduration='${{ github.event.inputs.duration }}' \
-            -l results.jtl
+          k6 run \
+            -e BASE_URL='${{ steps.params.outputs.base_url }}' \
+            -e TOKEN='${{ steps.params.outputs.token }}' \
+            -e WORKSPACEID='${{ steps.params.outputs.workspaceid }}' \
+            -e CMID='${{ steps.params.outputs.cmid }}' \
+            -e VUS='${{ github.event.inputs.threads }}' \
+            -e DURATION='${{ github.event.inputs.duration }}s' \
+            --summary-export=k6-summary.json \
+            plugin/tests/load/flexaccess-read-endpoints.js
 
       - name: Show Moodle server log on failure
         if: failure() && github.event.inputs.mode == 'selfcontained'
@@ -168,7 +163,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: jmeter-results
-          path: results.jtl
+          name: k6-summary
+          path: k6-summary.json
           retention-days: 7
           if-no-files-found: ignore
