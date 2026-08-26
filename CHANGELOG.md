@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.51 — 2026-08-27 — Coverage- und Maturity-Gate
+- **Neue `tests/coverage.php`** definiert den Coverage-Messumfang dieses Plugins.
+- **Neue CI-Gates** `coverage` (erzwungene Mindest-Line-Coverage) und `maturity-gate` (`MATURITY_STABLE` nur bei durchgehend grünen Release-Gates und dokumentierten Scope-Entscheidungen).
+- Die Maturity bleibt bewusst `MATURITY_BETA`, bis der Reviewer die Blocker unabhängig als geschlossen bestätigt.
+- Versions-Gleichschritt `2026082428`.
+
 ## 0.9.50 — 2026-08-26 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082427`.
 
