@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.39 — 2026-08-25 — Versions-Gleichschritt (enrol: Zugangsschlüssel-Fix)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082416`.
+
+## 0.9.38 — 2026-08-25 — CI-Rollback + Versions-Gleichschritt
+- **CI:** Rückrollung der Dev-Pipeline-Änderung — Geschwister werden wieder aus dem Default-Branch (`main`) gezogen.
+- Versions-Gleichschritt `2026082415`.
+
+## 0.9.38 — 2026-08-25 — CI-Rollback + P0-Security-Härtung
+
+- **CI:** Rücknahme der develop-Branch-Umstellung (Dev-Pipeline zieht Geschwister wieder aus `main`).
+- Versions-Gleichschritt `2026082415`. Keine funktionale Änderung.
+
 ## 0.9.37 — 2026-08-25 — CI: Dev-Pipeline zieht Geschwister aus develop
 - Die **Dev-Pipeline** (`moodle-plugin-ci-dev.yml`) holt die Geschwister-Plugins jetzt per `add-plugin … --branch develop` aus dem **develop-Branch** statt aus `main`. Damit testet die beschleunigte Pipeline den echten Entwicklungsstand aller vier Plugins gemeinsam — kein Skew mehr durch hinterherhängendes `main`. Die **Main-Pipeline** zieht weiterhin aus `main` (Release-Stand).
 - Versions-Gleichschritt auf `2026082414`.
