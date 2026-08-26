@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.48 — 2026-08-26 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082425`.
+
 ## 0.9.47 — 2026-08-26 — Release-Gate auf dem tatsächlichen Artefakt
 - **Neuer CI-Job `release-artefact`** in der Main-Pipeline: Er baut das Release-Archiv mit `git archive` (nur dieses respektiert `.gitattributes export-ignore`) und prüft die **tatsächlich ausgelieferte Dateiliste** — kein `tools/`, `docs/`, `.github/`, `tests/load/`, `tests/playwright/` und keine CI-Konfiguration; zugleich muss enthalten sein, was Moodle ausführt. `ci-complete` hängt daran. Damit prüft das Gate das Artefakt statt nur identischer Versionsnummern.
 - Versions-Gleichschritt `2026082424`.
