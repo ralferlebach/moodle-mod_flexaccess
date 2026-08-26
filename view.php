@@ -51,6 +51,12 @@ $state = \mod_flexaccess\local\view_state::resolve($accounttype, $authavailable)
 
 switch ($state) {
     case \mod_flexaccess\local\view_state::TEMPORARY:
+        // Check the activation capability before rendering the form: a user who may view but not
+        // activate must not be shown a form they cannot successfully submit.
+        if (!has_capability('mod/flexaccess:activate', $context)) {
+            echo $OUTPUT->notification(get_string('view:activatedenied', 'mod_flexaccess'), 'info');
+            break;
+        }
         $mform = new \mod_flexaccess\form\self_activation_form($PAGE->url->out(false), ['id' => $cm->id]);
         if ($data = $mform->get_data()) {
             require_capability('mod/flexaccess:activate', $context);

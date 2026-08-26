@@ -45,6 +45,7 @@ $string['sa:password'] = 'Passwort wählen';
 $string['sa:password_help'] = 'Legen Sie ein Passwort fest, damit Sie sich später mit Ihrer E-Mail-Adresse erneut an diesem Konto anmelden können.';
 $string['sa:submit'] = 'Mein Konto aktivieren';
 $string['sa:verificationsent'] = 'Fast geschafft — wir haben Ihnen einen Aktivierungslink per E-Mail gesendet. Folgen Sie ihm, um Ihr Konto dauerhaft zu behalten.';
+$string['view:activatedenied'] = 'Ihr temporärer Zugang ist aktiv. Sie haben hier keine Berechtigung, ihn mit einem dauerhaften Konto zu sichern; bitte wenden Sie sich an Ihre Kursadministration.';
 $string['view:authenticated'] = 'Ihr Konto ist bereits ein vollwertiges Konto. Hier ist nichts zu aktivieren.';
 $string['view:temporary'] = 'Sie nutzen temporären Zugang. Die Selbstaktivierung zum Behalten Ihrer Ergebnisse wird hier verfügbar sein.';
 $string['view:unavailable'] = 'FlexAccess ist nicht vollständig installiert; die Selbstaktivierung ist nicht verfügbar.';

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.42 — 2026-08-25 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082419`.
+
+## 0.9.41 — 2026-08-25 — Review-P2: toten Code entfernt
+- **`classes/local/activation_manager.php` entfernt** (samt zugehörigem Test). Die Klasse wurde von `view.php` nicht verwendet — dort wird direkt die zentrale Auth-API aufgerufen — und ausschließlich von ihrem eigenen Unit-Test benutzt. Sie erzeugte damit nur Scheinkomplexität.
+- Versions-Gleichschritt `2026082418`.
+
+## 0.9.40 — 2026-08-25 — Review-P1: activate-Capability vor Formular
+- **`mod/flexaccess:activate` wird vor der Formularanzeige geprüft.** Ein Nutzer mit `view=allow`, `activate=deny` sieht jetzt einen erklärenden Hinweis statt eines Formulars, das er nicht erfolgreich absenden kann.
+- Versions-Gleichschritt `2026082417`.
+
 ## 0.9.39 — 2026-08-25 — Versions-Gleichschritt (enrol: Zugangsschlüssel-Fix)
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082416`.
 

@@ -45,6 +45,7 @@ $string['sa:password'] = 'Choose a password';
 $string['sa:password_help'] = 'Set a password so you can log back in to this account later with your email address.';
 $string['sa:submit'] = 'Activate my account';
 $string['sa:verificationsent'] = 'Almost done — we have emailed you an activation link. Follow it to keep your account permanently.';
+$string['view:activatedenied'] = 'Your temporary access is active. You do not have permission to secure it with a permanent account here; please contact your course administrator.';
 $string['view:authenticated'] = 'Your account is already a full account. Nothing to activate here.';
 $string['view:temporary'] = 'You are using temporary access. Self-activation to keep your results will be available here.';
 $string['view:unavailable'] = 'FlexAccess is not fully installed, so self-activation is unavailable.';
