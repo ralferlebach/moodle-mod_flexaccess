@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.9.46 — 2026-08-26 — Release-Artefakte ohne Entwicklerwerkzeuge
+- **CLI-Guard** (`PHP_SAPI !== 'cli'` → 403) in allen `tools/`-Skripten, vor jedem Schreibzugriff.
+- Die Release-Pakete respektieren jetzt `.gitattributes export-ignore`: `tools/`, `docs/`, `.github/`, `tests/load/`, `tests/playwright/` und die CI-Konfiguration sind nicht mehr enthalten.
+- Versions-Gleichschritt `2026082423`.
+
+## 0.9.45 — 2026-08-26 — String-IDs vereinheitlicht
+- Colon-IDs allgemeiner UI-Strings flach gezogen; Capability- und Privacy-Keys behalten konventionsgemäß den Doppelpunkt.
+- Versions-Gleichschritt `2026082422`.
+
+## 0.9.44 — 2026-08-25 — CI-Release-Gate
+- **`ecosystem-lockstep`** in der Main-Pipeline: Die Freigabe scheitert, wenn nicht alle vier FlexAccess-Plugins dieselbe Version melden.
+- Versions-Gleichschritt `2026082421`.
+
 ## 0.9.43 — 2026-08-25 — CI: Geschwister aus development
 - **Dev-Pipeline und Playwright-Workflow** ziehen die Geschwister-Plugins jetzt per `--branch development` aus dem gemeinsamen Entwicklungszweig, damit das Ökosystem in seinem echten, gemeinsam entwickelten Stand getestet wird. Die Main-Pipeline bleibt auf `main`.
 - Versions-Gleichschritt `2026082420`.
