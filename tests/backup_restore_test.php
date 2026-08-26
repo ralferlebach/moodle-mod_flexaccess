@@ -16,7 +16,6 @@
 
 namespace mod_flexaccess;
 
-use PHPUnit\Framework\Attributes\CoversClass;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -30,9 +29,8 @@ require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
  * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @covers \backup_flexaccess_activity_structure_step
  */
-#[CoversClass(\backup_flexaccess_activity_structure_step::class)]
-#[CoversClass(\restore_flexaccess_activity_structure_step::class)]
 final class backup_restore_test extends \advanced_testcase {
     /**
      * A FlexAccess instance survives a backup and restore into a new course.
