@@ -1,5 +1,121 @@
 # Changelog
 
+## 0.9.52 — 2026-08-27 — CI-Fix: Coverage-Konfiguration war nicht 4.5-kompatibel
+- **Alle PHPUnit- und Behat-Jobs scheiterten an `Class "core\test\phpunit\coverage_info" not found`.** Die in 0.9.51 eingeführte `tests/coverage.php` verwendete den **namespaced** Klassennamen; den gibt es erst ab Moodle 5.x. Auf dem unterstützten Moodle 4.5 heißt die Klasse `phpunit_coverage_info`. Sie wird jetzt über diesen globalen Namen abgeleitet — auf 4.5 ist das die Klasse selbst, auf 5.x ein gepflegter Alias, also für alle unterstützten Versionen korrekt.
+- **Neue Datei `db/removed_files.txt` und neuer CI-Job `stale-files`.** Ein Plugin-Update per ZIP fügt Dateien hinzu und überschreibt sie, **löscht aber nie**. In früheren Releases entfernte Dateien überleben deshalb in einer Installation oder in einem so aktualisierten Repository — mit Folgen wie doppelten Klassen (phpcpd) oder Zugriffen auf nicht mehr existierende Spalten. Der Job schlägt fehl, solange eine gelistete Datei noch vorhanden ist, statt die Ursache in Folgefehlern zu verstecken. In Dev- **und** Main-Pipeline verdrahtet, `ci-complete` hängt daran.
+- Versions-Gleichschritt `2026082429`.
+
+- **Zu löschen in diesem Repository:** `classes/local/activation_manager.php` und `tests/activation_manager_test.php` (in 0.9.41 entfernt).
+
+## 0.9.51 — 2026-08-27 — Coverage- und Maturity-Gate
+- **Neue `tests/coverage.php`** definiert den Coverage-Messumfang dieses Plugins.
+- **Neue CI-Gates** `coverage` (erzwungene Mindest-Line-Coverage) und `maturity-gate` (`MATURITY_STABLE` nur bei durchgehend grünen Release-Gates und dokumentierten Scope-Entscheidungen).
+- Die Maturity bleibt bewusst `MATURITY_BETA`, bis der Reviewer die Blocker unabhängig als geschlossen bestätigt.
+- Versions-Gleichschritt `2026082428`.
+
+## 0.9.50 — 2026-08-26 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082427`.
+
+## 0.9.49 — 2026-08-26 — Versions-Gleichschritt (CI-Fix im tool, Persistenz-Fix im auth)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082426`.
+
+## 0.9.48 — 2026-08-26 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082425`.
+
+## 0.9.47 — 2026-08-26 — Release-Gate auf dem tatsächlichen Artefakt
+- **Neuer CI-Job `release-artefact`** in der Main-Pipeline: Er baut das Release-Archiv mit `git archive` (nur dieses respektiert `.gitattributes export-ignore`) und prüft die **tatsächlich ausgelieferte Dateiliste** — kein `tools/`, `docs/`, `.github/`, `tests/load/`, `tests/playwright/` und keine CI-Konfiguration; zugleich muss enthalten sein, was Moodle ausführt. `ci-complete` hängt daran. Damit prüft das Gate das Artefakt statt nur identischer Versionsnummern.
+- Versions-Gleichschritt `2026082424`.
+
+## 0.9.46 — 2026-08-26 — Release-Artefakte ohne Entwicklerwerkzeuge
+- **CLI-Guard** (`PHP_SAPI !== 'cli'` → 403) in allen `tools/`-Skripten, vor jedem Schreibzugriff.
+- Die Release-Pakete respektieren jetzt `.gitattributes export-ignore`: `tools/`, `docs/`, `.github/`, `tests/load/`, `tests/playwright/` und die CI-Konfiguration sind nicht mehr enthalten.
+- Versions-Gleichschritt `2026082423`.
+
+## 0.9.45 — 2026-08-26 — String-IDs vereinheitlicht
+- Colon-IDs allgemeiner UI-Strings flach gezogen; Capability- und Privacy-Keys behalten konventionsgemäß den Doppelpunkt.
+- Versions-Gleichschritt `2026082422`.
+
+## 0.9.44 — 2026-08-25 — CI-Release-Gate
+- **`ecosystem-lockstep`** in der Main-Pipeline: Die Freigabe scheitert, wenn nicht alle vier FlexAccess-Plugins dieselbe Version melden.
+- Versions-Gleichschritt `2026082421`.
+
+## 0.9.43 — 2026-08-25 — CI: Geschwister aus development
+- **Dev-Pipeline und Playwright-Workflow** ziehen die Geschwister-Plugins jetzt per `--branch development` aus dem gemeinsamen Entwicklungszweig, damit das Ökosystem in seinem echten, gemeinsam entwickelten Stand getestet wird. Die Main-Pipeline bleibt auf `main`.
+- Versions-Gleichschritt `2026082420`.
+
+## 0.9.42 — 2026-08-25 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082419`.
+
+## 0.9.41 — 2026-08-25 — Review-P2: toten Code entfernt
+- **`classes/local/activation_manager.php` entfernt** (samt zugehörigem Test). Die Klasse wurde von `view.php` nicht verwendet — dort wird direkt die zentrale Auth-API aufgerufen — und ausschließlich von ihrem eigenen Unit-Test benutzt. Sie erzeugte damit nur Scheinkomplexität.
+- Versions-Gleichschritt `2026082418`.
+
+## 0.9.40 — 2026-08-25 — Review-P1: activate-Capability vor Formular
+- **`mod/flexaccess:activate` wird vor der Formularanzeige geprüft.** Ein Nutzer mit `view=allow`, `activate=deny` sieht jetzt einen erklärenden Hinweis statt eines Formulars, das er nicht erfolgreich absenden kann.
+- Versions-Gleichschritt `2026082417`.
+
+## 0.9.39 — 2026-08-25 — Versions-Gleichschritt (enrol: Zugangsschlüssel-Fix)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082416`.
+
+## 0.9.38 — 2026-08-25 — CI-Rollback + Versions-Gleichschritt
+- **CI:** Rückrollung der Dev-Pipeline-Änderung — Geschwister werden wieder aus dem Default-Branch (`main`) gezogen.
+- Versions-Gleichschritt `2026082415`.
+
+## 0.9.38 — 2026-08-25 — CI-Rollback + P0-Security-Härtung
+
+- **CI:** Rücknahme der develop-Branch-Umstellung (Dev-Pipeline zieht Geschwister wieder aus `main`).
+- Versions-Gleichschritt `2026082415`. Keine funktionale Änderung.
+
+## 0.9.37 — 2026-08-25 — CI: Dev-Pipeline zieht Geschwister aus develop
+- Die **Dev-Pipeline** (`moodle-plugin-ci-dev.yml`) holt die Geschwister-Plugins jetzt per `add-plugin … --branch develop` aus dem **develop-Branch** statt aus `main`. Damit testet die beschleunigte Pipeline den echten Entwicklungsstand aller vier Plugins gemeinsam — kein Skew mehr durch hinterherhängendes `main`. Die **Main-Pipeline** zieht weiterhin aus `main` (Release-Stand).
+- Versions-Gleichschritt auf `2026082414`.
+
+## 0.9.36 — 2026-08-25 — Versions-Gleichschritt (CI-Fix im enrol-Behat)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082413`.
+
+## 0.9.35 — 2026-08-25 — Versions-Gleichschritt (CI-Fixes in auth/enrol)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082412`.
+
+## 0.9.34 — 2026-08-25 — Versions-Gleichschritt (E-Mail-Login-Methode + Login-UI)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082411`.
+
+## 0.9.33 — 2026-08-25 — Versions-Gleichschritt (enrol: Fix Teilnehmerlisten-Sichtbarkeit)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082410`.
+
+## 0.9.32 — 2026-08-25 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082409`.
+
+## 0.9.31 — 2026-08-25 — Versions-Gleichschritt (enrol: präzisierte Neutralisierungs-Warnung)
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082408`.
+
+## 0.9.30 — 2026-08-25 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082407`.
+
+## 0.9.29 — 2026-08-25 — P2: PHPUnit-11-Migration + Pakete ohne .git
+- `@covers`-Doc-Annotationen der Testklassen auf `#[CoversClass(...)]`-Attribute umgestellt (keine PHPUnit-Deprecations mehr). `.git`-Verzeichnisse aus dem Paket entfernt. Versions-Gleichschritt auf `2026082406`.
+
+## 0.9.28 — 2026-08-25 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082405`.
+
+## 0.9.27 — 2026-08-24 — CI-Fix: fehlerhafte Workflow-Ausdrücke (${ } → ${{ }})
+- Fehlerhafte GitHub-Actions-Ausdrücke im `lint-jsamd`-Job korrigiert (`${ } → ${{ }}`); mit `actionlint` gegengeprüft (0 Findings). Kein PHP-Code geändert; Versions-Gleichschritt auf `2026082404`.
+
+## 0.9.26 — 2026-08-24 — CI: JS/AMD/Mustache-Job wiederhergestellt (catquiz-Form 1:1)
+- `lint-jsamd` (grunt + mustache) in dev wiederhergestellt; Mustache/npm/Grunt in main ergänzt. Kein PHP-Code geändert; Versions-Gleichschritt auf `2026082403`.
+
+## 0.9.25 — 2026-08-24 — CI-Fixes (DB-Versionen, vollständige Geschwister, eine Main-Pipeline)
+- CI: `postgres:13→16`, `mariadb:10.8→10.11`; jede Pipeline installiert alle drei Geschwister (Ökosystem-Tests); `moodle-release.yml` entfernt.
+- Kein PHP-Code geändert; Versions-Gleichschritt auf `2026082402`.
+
+## 0.9.24 — 2026-08-24 — Versions-Gleichschritt (enrol: L3-Kurs-Einstieg + Load-Pläne + CI-Konsolidierung)
+- Keine Codeänderung in diesem Plugin. CI: eine Main-Pipeline (Ökosystem-`main.yml` entfernt); Load-Workflows liegen im Hub `enrol_flexaccess`.
+- Versions-Gleichschritt auf `2026082401`.
+
+## 0.9.23 — 2026-08-24 — Versions-Gleichschritt (enrol: Zugangs-Blocker-Fix + Kopplungscheck)
+- Keine Codeänderung in diesem Plugin; gemeinsamer Versions-Bump auf `2026082400` und aktualisierte Abhängigkeits-Pins.
+- **CI-Fix:** `@package`-Korrektur in `tools/mustache_check.php` und `tools/fix_phpdoc.php` (Copy-Paste-Rest).
+- **CI-Pipeline:** getrennte Dev-/Main-Workflows + dispatch-only JMeter-/k6-Lastworkflows (catquiz-Vorbild, FlexAccess-Geschwister als Abhängigkeit).
+
 ## 0.9.22 — 2026-08-20 — Fix: PHPDoc-Checker (CI) — @param-Vollstaendigkeit
 - Keine Codeaenderung.
 

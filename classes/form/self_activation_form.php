@@ -43,25 +43,25 @@ class self_activation_form extends \moodleform {
     protected function definition(): void {
         $mform = $this->_form;
 
-        $mform->addElement('text', 'email', get_string('sa:email', 'mod_flexaccess'));
+        $mform->addElement('text', 'email', get_string('saemail', 'mod_flexaccess'));
         $mform->setType('email', PARAM_EMAIL);
         $mform->addRule('email', get_string('required'), 'required', null, 'client');
 
-        $mform->addElement('text', 'firstname', get_string('sa:firstname', 'mod_flexaccess'));
+        $mform->addElement('text', 'firstname', get_string('safirstname', 'mod_flexaccess'));
         $mform->setType('firstname', PARAM_NOTAGS);
 
-        $mform->addElement('text', 'lastname', get_string('sa:lastname', 'mod_flexaccess'));
+        $mform->addElement('text', 'lastname', get_string('salastname', 'mod_flexaccess'));
         $mform->setType('lastname', PARAM_NOTAGS);
 
-        $mform->addElement('passwordunmask', 'password', get_string('sa:password', 'mod_flexaccess'));
+        $mform->addElement('passwordunmask', 'password', get_string('sapassword', 'mod_flexaccess'));
         $mform->setType('password', PARAM_RAW);
         $mform->addRule('password', get_string('required'), 'required', null, 'client');
-        $mform->addHelpButton('password', 'sa:password', 'mod_flexaccess');
+        $mform->addHelpButton('password', 'sapassword', 'mod_flexaccess');
 
         $mform->addElement('hidden', 'id', $this->_customdata['id']);
         $mform->setType('id', PARAM_INT);
 
-        $this->add_action_buttons(false, get_string('sa:submit', 'mod_flexaccess'));
+        $this->add_action_buttons(false, get_string('sasubmit', 'mod_flexaccess'));
     }
 
     /**

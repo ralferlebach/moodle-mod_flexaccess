@@ -51,6 +51,12 @@ $state = \mod_flexaccess\local\view_state::resolve($accounttype, $authavailable)
 
 switch ($state) {
     case \mod_flexaccess\local\view_state::TEMPORARY:
+        // Check the activation capability before rendering the form: a user who may view but not
+        // activate must not be shown a form they cannot successfully submit.
+        if (!has_capability('mod/flexaccess:activate', $context)) {
+            echo $OUTPUT->notification(get_string('viewactivatedenied', 'mod_flexaccess'), 'info');
+            break;
+        }
         $mform = new \mod_flexaccess\form\self_activation_form($PAGE->url->out(false), ['id' => $cm->id]);
         if ($data = $mform->get_data()) {
             require_capability('mod/flexaccess:activate', $context);
@@ -63,20 +69,20 @@ switch ($state) {
             );
             $ok = ($status === 'activated' || $status === 'verificationsent');
             $type = $ok ? 'success' : 'error';
-            echo $OUTPUT->notification(get_string('sa:' . $status, 'mod_flexaccess'), $type);
+            echo $OUTPUT->notification(get_string('sa' . $status, 'mod_flexaccess'), $type);
             if (!$ok) {
                 $mform->display();
             }
         } else {
-            echo $OUTPUT->notification(get_string('view:temporary', 'mod_flexaccess'), 'info');
+            echo $OUTPUT->notification(get_string('viewtemporary', 'mod_flexaccess'), 'info');
             $mform->display();
         }
         break;
     case \mod_flexaccess\local\view_state::AUTHENTICATED:
-        echo $OUTPUT->notification(get_string('view:authenticated', 'mod_flexaccess'), 'info');
+        echo $OUTPUT->notification(get_string('viewauthenticated', 'mod_flexaccess'), 'info');
         break;
     default:
-        echo $OUTPUT->notification(get_string('view:unavailable', 'mod_flexaccess'), 'warning');
+        echo $OUTPUT->notification(get_string('viewunavailable', 'mod_flexaccess'), 'warning');
 }
 
 echo $OUTPUT->footer();
