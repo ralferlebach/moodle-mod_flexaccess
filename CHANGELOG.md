@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-RC1 — 2026-08-27 — Release Candidate 1
+- Version `2026082700`, Release `1.0.0-RC1`, Reifegrad `MATURITY_STABLE`.
+- **Aktivitätssymbol in der Farbe für Verwaltungs- und Zugangsfunktionen:** Die Aktivität meldet jetzt `MOD_PURPOSE_ADMINISTRATION`. Moodle färbt das Symbol nach diesem Zweck ein — die Aktivität liefert keine Inhalte und keine Bewertung, sondern sichert den Kurszugang.
+- Die Abhängigkeiten verlangen ebenfalls `2026082700`.
+- **Neue `README.md`** nach dem Muster von Moodle an Hochschulen.
+
 ## 0.9.63 — 2026-08-27 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082440`.
 

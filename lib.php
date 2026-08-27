@@ -34,6 +34,9 @@
 function flexaccess_supports($feature) {
     return match ($feature) {
         FEATURE_MOD_ARCHETYPE => MOD_ARCHETYPE_OTHER,
+        // Administration purpose: Moodle colours the activity icon by purpose, and this activity
+        // grants and secures course access rather than delivering content or assessment.
+        FEATURE_MOD_PURPOSE => MOD_PURPOSE_ADMINISTRATION,
         FEATURE_GROUPS => false,
         FEATURE_GROUPINGS => false,
         FEATURE_MOD_INTRO => true,
