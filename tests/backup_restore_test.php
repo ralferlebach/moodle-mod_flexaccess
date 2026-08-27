@@ -29,7 +29,7 @@ require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
  * @package    mod_flexaccess
  * @copyright  2026 Ralf Erlebach
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @covers \backup_flexaccess_activity_structure_step
+ * @coversNothing
  */
 final class backup_restore_test extends \advanced_testcase {
     /**
