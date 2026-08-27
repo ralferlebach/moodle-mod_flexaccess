@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.60 — 2026-08-27 — Testserver auf 127.0.0.1
+- Der Testserver wird an `127.0.0.1` gebunden und unter derselben Adresse angesprochen; `localhost` konnte je nach Client nach `::1` aufgelöst werden, wohin der Server nicht lauscht.
+- Versions-Gleichschritt `2026082437`.
+
 ## 0.9.59 — 2026-08-27 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082436`.
 
