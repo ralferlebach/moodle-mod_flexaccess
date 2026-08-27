@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.59 — 2026-08-27 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082436`.
+
+## 0.9.58 — 2026-08-27 — Playwright-Testharness bereinigt
+- **Eine** Installationsroutine für die Geschwister-Plugins mit **einem** Ref; Prüfschritt gegen verschachtelte Plugin-Kopien. Der Webserver läuft im selben Schritt wie der Testlauf.
+- **Kommentare überarbeitet:** Sachaussagen statt Verweisen auf den Bearbeitungsverlauf.
+- Versions-Gleichschritt `2026082435`.
+
 ## 0.9.57 — 2026-08-27 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082434`.
 
