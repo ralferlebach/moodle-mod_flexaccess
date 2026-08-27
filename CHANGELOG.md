@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.63 — 2026-08-27 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt auf `2026082440`.
+
 ## 0.9.62 — 2026-08-27 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt auf `2026082439`.
 
