@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0-RC1 — 2026-08-27 — `db/removed_files.txt` nicht mehr im Auslieferungspaket
+- **Die Liste entfernter Dateien wird nicht mehr mit ausgeliefert** (`export-ignore`). Sie ist ausschließlich repo-seitig von Bedeutung: Moodles ZIP-Installation ersetzt das Plugin-Verzeichnis vollständig, eine Altdatei kann sie also gar nicht überleben. Nur beim Aktualisieren eines Repositories an Ort und Stelle bleibt eine entfernte Datei liegen — genau dafür liest der CI-Job `stale-files` die Liste weiterhin aus dem Repository.
+
 ## 1.0.0-RC1 — 2026-08-27 — Pflichtdatei db/upgrade.php ergänzt
 - **`db/upgrade.php` hinzugefügt.** Die Prüfung des Moodle-Plugin-Verzeichnisses wies das Paket ab: „File db/upgrade.php must exist in archive and is not found." Ein Aktivitätsmodul muss die Datei mitliefern, auch wenn es noch keinen Upgrade-Schritt gibt — Moodle ruft `xmldb_flexaccess_upgrade()` bei jedem Versionswechsel auf. Weder die lokalen Prüfungen noch die CI hatten das bemerkt, weil Moodle sich ohne die Datei anstandslos installieren lässt.
 - Die Datei ist bewusst leer bis auf die Rückgabe: Das Modul speichert nur seine eigene Instanztabelle, die seit dem ersten Release unverändert ist. Künftige Schritte kommen als übliche `if ($oldversion < …)`-Blöcke hinzu.
