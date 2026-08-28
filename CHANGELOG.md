@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-RC1 — 2026-08-27 — Pflichtdatei db/upgrade.php ergänzt
+- **`db/upgrade.php` hinzugefügt.** Die Prüfung des Moodle-Plugin-Verzeichnisses wies das Paket ab: „File db/upgrade.php must exist in archive and is not found." Ein Aktivitätsmodul muss die Datei mitliefern, auch wenn es noch keinen Upgrade-Schritt gibt — Moodle ruft `xmldb_flexaccess_upgrade()` bei jedem Versionswechsel auf. Weder die lokalen Prüfungen noch die CI hatten das bemerkt, weil Moodle sich ohne die Datei anstandslos installieren lässt.
+- Die Datei ist bewusst leer bis auf die Rückgabe: Das Modul speichert nur seine eigene Instanztabelle, die seit dem ersten Release unverändert ist. Künftige Schritte kommen als übliche `if ($oldversion < …)`-Blöcke hinzu.
+
+## 1.0.0-RC1 — 2026-08-27 — Serverlog im Fehlerpaket
+- **Das vollständige Serverlog liegt dem Fehlerpaket bei**, gzip-komprimiert (`moodle-server.log.gz`). Im Job-Protokoll erscheinen weiterhin nur die letzten 100 Zeilen — der Rest ist dort ohnehin nicht lesbar, wächst aber schnell auf eine Größe, die den Download unhandlich macht. An einem Beispiellauf gemessen: 492 KB roh, 4 KB gepackt.
+- Der Schritt läuft **nach** dem Einsammeln der Fehlerverzeichnisse: Dieses leert das Zielverzeichnis zuerst und hätte ein vorher abgelegtes Log wieder entfernt.
+
 ## 1.0.0-RC1 — 2026-08-27 — Browsersuiten: zwei Fehler behoben, Artefakte nach Ergebnis getrennt
 - **`ReferenceError: loginAsManager is not defined`.** Beim Aufteilen der Barrierefreiheitsprüfung ist die Hilfsfunktion im auth-Teil geblieben, ihr Aufruf aber in den tool-Teil gewandert. Sie steht jetzt dort, wo sie gebraucht wird.
 - **Falsche Beschriftung im Aktivierungstest.** Der Test erwartete „Make my account permanent" — die Aktivität beschriftet ihre Schaltfläche aber mit „Activate my account" (Sprachstring `sasubmit`). Alle in den Suiten erwarteten Beschriftungen wurden gegen die englischen Sprachdateien gegengeprüft.
