@@ -56,7 +56,7 @@ test('a permanent user is told the account is already secured', async ({ page })
   await loginAs(page, ADMIN_USER, ADMIN_PASS);
   await open(page, `/mod/flexaccess/view.php?id=${CMID}`);
   // An account that is already permanent has nothing to activate.
-  await expect(page.locator('body')).not.toContainText('Make my account permanent');
+  await expect(page.locator('body')).not.toContainText('Activate my account');
 });
 
 test('a temporary visitor is offered the activation form', async ({ page, context }) => {
@@ -98,6 +98,7 @@ test('a temporary visitor secures the account through the activity', async ({ pa
   await page.fill('input[name="firstname"]', 'John');
   await page.fill('input[name="lastname"]', 'Doe');
   await fillPasswordUnmask(page, 'password', password);
-  await page.getByRole('button', { name: /Make my account permanent/i }).click();
+  // The activity has its own wording; the auth form's button is called differently.
+  await page.getByRole('button', { name: /Activate my account/i }).click();
   await expect(page.locator('body')).toContainText(/permanent/i);
 });
