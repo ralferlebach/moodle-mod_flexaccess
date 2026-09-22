@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0 — 2026-09-22 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt mit dem FlexAccess-Verbund: `MATURITY_STABLE`, Version `2026092201`, Release `1.1.0`.
+
 ## 1.0.0 — 2026-09-11 — Erste stabile Freigabe
 - Reifegrad `MATURITY_STABLE`, Version `2026091100`, Release `1.0.0`.
 - **README:** Neben dem CI-Badge steht jetzt ein FlexAccess-Badge mit dem Plugin-Typ, das auf das Hauptplugin `enrol_flexaccess` verweist. Die genannte Verbundversion wurde nachgezogen.
