@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0 (2026092801) — 2026-09-28 — Versions-Gleichschritt
+- Keine Codeänderung. Versions-Gleichschritt mit dem FlexAccess-Verbund: `MATURITY_STABLE`, Version `2026092801`, Release `1.1.0`.
+
 ## 1.1.0 (2026092800) — 2026-09-28 — Versions-Gleichschritt
 - Keine Codeänderung. Versions-Gleichschritt mit dem FlexAccess-Verbund: `MATURITY_STABLE`, Version `2026092800`, Release `1.1.0`.
 
