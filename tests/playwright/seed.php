@@ -60,6 +60,15 @@ if (!in_array('flexaccess', $enabledauths, true)) {
     set_config('auth', implode(',', $enabledauths));
 }
 
+// Both halves of FlexAccess must be enabled, as on any site that uses it: entry flows stop before any
+// side effect while the enrolment or the authentication plugin is disabled (kill switch, 2026092900).
+$enabledenrols = explode(',', (string) get_config('core', 'enrol_plugins_enabled'));
+if (!in_array('flexaccess', $enabledenrols, true)) {
+    $enabledenrols[] = 'flexaccess';
+    set_config('enrol_plugins_enabled', implode(',', array_filter($enabledenrols)));
+}
+\cache::make('enrol_flexaccess', 'policy')->purge();
+
 // The activity under test: a temporary visitor uses it to make their account permanent.
 require_once($CFG->dirroot . '/course/modlib.php');
 $moduleid = $DB->get_field('modules', 'name', ['name' => 'flexaccess'], IGNORE_MISSING)
