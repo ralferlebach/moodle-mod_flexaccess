@@ -25,10 +25,10 @@ partial installation does not work - a missing sibling means a missing part of t
 Requirements
 ------------
 
-This plugin requires Moodle 4.5+
+This plugin requires Moodle 4.5 LTS up to Moodle 5.3 (tested on 4.5, 5.0, 5.2 and 5.3).
 
 It also requires the other FlexAccess plugins. All four are released together and must be installed
-in the same version (currently 1.1.0 / 2026092900):
+in the same version (currently 1.2.0 / 2026101700):
 
 * **auth_flexaccess (FlexAccess authentication)** - required dependency, declared in version.php\
   https://github.com/ralferlebach/moodle-auth_flexaccess
