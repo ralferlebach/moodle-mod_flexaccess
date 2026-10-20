@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2026101800) — 2026-10-18 — CI auf exakte Commits, Versions-Gleichschritt
+- Keine funktionale Änderung. Die CI installiert die Geschwister-Plugins genau gepinnt (tool_flexaccess #12).
+- Version `2026101800`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
 ## 1.2.0 (2026101700) — 2026-10-17 — Moodle 5.3, Versions-Gleichschritt
 - Keine funktionale Änderung. Freigegeben für Moodle 4.5 bis 5.3 (`supported` [405, 503]); CI-Matrix um Moodle 5.3 × PHP 8.3/8.4 × PostgreSQL 17/MariaDB 11.4 erweitert, Playwright auch auf 5.3 (public/-Layout).
 - Version `2026101700`, Release `1.2.0`, `MATURITY_STABLE`.
