@@ -1,7 +1,24 @@
 # Changelog
 
+## 1.2.0 (2026102500) — 2026-10-25 — Clock-Gate
+- Keine funktionale Änderung. Neues Gate `clock_usage_test` (keine direkte Abfrage der Wanduhr).
+- Version `2026102500`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
+## 1.2.0 (2026102401) — 2026-10-24 — Versions-Gleichschritt
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Version `2026102401`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
+## 1.2.0 (2026102400) — 2026-10-24 — Versions-Gleichschritt
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Version `2026102400`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
+## 1.2.0 (2026102100) — 2026-10-21 — Zeitstempel über die Moodle-Uhr
+- **Moodle-Uhr (#6, CLOCK-API).** `timecreated` und `timemodified` der Aktivität kommen aus `\core\di::get(\core\clock::class)->time()`. Beim Aktualisieren bleibt `timecreated` unverändert, auch wenn die übergebenen Daten einen Wert enthalten. Tests (`lib_test`): exakte Werte bei eingefrorener Uhr für Anlegen und Ändern, fortschreitendes `timemodified` über Moodles Kurs-API bei fortlaufender Uhr.
+- Version `2026102100`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
 ## 1.2.0 (2026101800) — 2026-10-18 — CI auf exakte Commits, Versions-Gleichschritt
 - Keine funktionale Änderung. Die CI installiert die Geschwister-Plugins genau gepinnt (tool_flexaccess #12).
+- **CI-Nachbesserung (20.10.2026, ohne Codeänderung, Version unverändert):** Die Läufe vom 20.10. waren in allen vier Repositories rot, weil `moodle-plugin-ci install` die per `fetch` geladenen Geschwister ohne `--extra-plugins` nicht installierte (PHPUnit/Behat: „Class enrol_flexaccess\local\enrol_service not found“, übersprungene Tests) und `record_environment.php` die reguläre Site-Datenbank las, die moodle-plugin-ci gar nicht anlegt („Table config does not exist“). Jetzt erhält jede Installation das Verzeichnis ausdrücklich, und das Protokoll liest `version.php` im Moodle-Baum sowie die PHPUnit-/Behat-Testsites direkt; tool_mergeusers wird nur dort verlangt, wo der Job es pinnt.
 - Version `2026101800`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
 
 ## 1.2.0 (2026101700) — 2026-10-17 — Moodle 5.3, Versions-Gleichschritt

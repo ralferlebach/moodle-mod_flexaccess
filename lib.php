@@ -58,7 +58,7 @@ function flexaccess_supports($feature) {
  */
 function flexaccess_add_instance($data, $mform = null): int {
     global $DB;
-    $data->timecreated = time();
+    $data->timecreated = \core\di::get(\core\clock::class)->time();
     $data->timemodified = $data->timecreated;
     return $DB->insert_record('flexaccess', $data);
 }
@@ -75,7 +75,9 @@ function flexaccess_add_instance($data, $mform = null): int {
 function flexaccess_update_instance($data, $mform = null): bool {
     global $DB;
     $data->id = $data->instance;
-    $data->timemodified = time();
+    // The creation time belongs to the instance, not to the update: never overwrite it.
+    unset($data->timecreated);
+    $data->timemodified = \core\di::get(\core\clock::class)->time();
     return $DB->update_record('flexaccess', $data);
 }
 
