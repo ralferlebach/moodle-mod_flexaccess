@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2026102600) — 2026-10-26 — Versions-Gleichschritt
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Version `2026102600`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
 ## 1.2.0 (2026102502) — 2026-10-25 — Versions-Gleichschritt
 - Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
 - Version `2026102502`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
