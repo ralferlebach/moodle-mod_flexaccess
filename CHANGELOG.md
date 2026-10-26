@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 (2026102502) — 2026-10-25 — Versions-Gleichschritt
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Version `2026102502`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
+## 1.2.0 (2026102501) — 2026-10-25 — Stabile Browser-Journeys
+- Playwright `freshSession()` (in allen vier Plugins): Vor einem Sitzungswechsel verlässt der Test die aktuelle Seite (`about:blank`), bevor er die Cookies löscht. Sonst konnte eine noch laufende Anfrage der vorigen Seite ein neues Sitzungscookie setzen – zwischen Anmeldeformular und Absenden; Moodle wies die Anmeldung dann als ungültiges Login-Token ab (im Server-Log „Invalid Login Token“) oder brach die nächste Navigation ab (`net::ERR_ABORTED`). Das war die Ursache des seit 2026102401 beobachteten Ausfalls von „temporary access can be made permanent“; im Plugin-Code liegt kein Fehler. Nur Testcode.
+- Version `2026102501`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
+
 ## 1.2.0 (2026102500) — 2026-10-25 — Clock-Gate
 - Keine funktionale Änderung. Neues Gate `clock_usage_test` (keine direkte Abfrage der Wanduhr).
 - Version `2026102500`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].

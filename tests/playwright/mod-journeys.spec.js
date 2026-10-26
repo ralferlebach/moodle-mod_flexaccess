@@ -21,7 +21,7 @@
  */
 
 const { test, expect } = require('@playwright/test');
-const { loginAs, fillPasswordUnmask, open, submitForm, chooseCourse } = require('./helpers');
+const { loginAs, fillPasswordUnmask, open, submitForm, chooseCourse, freshSession } = require('./helpers');
 
 const ADMIN_USER = process.env.FLEXACCESS_ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.FLEXACCESS_ADMIN_PASS || 'Admin!23';
@@ -62,7 +62,7 @@ test('a permanent user is told the account is already secured', async ({ page })
 test('a temporary visitor is offered the activation form', async ({ page, context }) => {
   test.skip(!COURSE_ID || !CMID, 'Fixture not provided by the seed step');
 
-  await context.clearCookies();
+  await freshSession(page);
   await page.goto(`/auth/flexaccess/access.php?courseid=${COURSE_ID}`);
   const cont = page.getByRole('button', { name: /Continue/i });
   if (await cont.count()) {
@@ -83,7 +83,7 @@ test('a temporary visitor secures the account through the activity', async ({ pa
   const email = personEmail('john.doe', testInfo);
   const password = 'P@$$w0rd!';
 
-  await context.clearCookies();
+  await freshSession(page);
   await page.goto(`/auth/flexaccess/access.php?courseid=${COURSE_ID}`);
   const cont = page.getByRole('button', { name: /Continue/i });
   if (await cont.count()) {

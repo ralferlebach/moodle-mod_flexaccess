@@ -6,8 +6,9 @@ moodle-mod_flexaccess
 The FlexAccess activity lets a temporary visitor turn their account into a permanent one from inside the course, at the moment they decide their progress is worth keeping.
 
 FlexAccess is not a single plugin but a set of four that work as one system. They are released
-together, carry the same version number and declare each other as dependencies, so they can only be
-installed and updated as a set.
+together, carry the same version number and declare their dependencies (tool and mod require auth and enrol;
+enrol requires auth), so they can only be installed and updated as a set. They are uninstalled in the reverse order:
+tool and mod, then enrol, then auth (Moodle removes a plugin only when nothing on disk still requires it).
 
 * **auth_flexaccess** provides the identity layer: it creates the temporary accounts, converts them into permanent ones, issues one-time login links and runs the central, rate-limited mail queue that all four plugins send through.
 * **enrol_flexaccess** decides who may enter a course and how: it owns the access policy across site, category and course, enforces capacity, access windows, access keys and role or cohort restrictions.
@@ -28,7 +29,7 @@ Requirements
 This plugin requires Moodle 4.5 LTS up to Moodle 5.3 (tested on 4.5, 5.0, 5.2 and 5.3).
 
 It also requires the other FlexAccess plugins. All four are released together and must be installed
-in the same version (currently 1.2.0 / 2026102500):
+in the same version (currently 1.2.0 / 2026102502):
 
 * **auth_flexaccess (FlexAccess authentication)** - required dependency, declared in version.php\
   https://github.com/ralferlebach/moodle-auth_flexaccess
