@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0 (2026102700) — 2026-10-27 — Versions-Gleichschritt, Logo
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Plugin-Logo wie mit 2026102601 hochgeladen übernommen.
+- Version `2026102700`, Release `1.2.0`.
+
 ## 1.2.0 (2026102601) — 2026-10-26 — Versions-Gleichschritt
 - Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
 - Version `2026102601`, Release `1.2.0`, `MATURITY_STABLE`, `supported` [405, 503].
