@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2026102800) — 2026-10-28 — Versions-Gleichschritt
+- Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
+- Version `2026102800`, Release `1.2.0`.
+
 ## 1.2.0 (2026102700) — 2026-10-27 — Versions-Gleichschritt, Logo
 - **Familien-Resolver vereinfacht** (Release-Gate in tool_flexaccess entfernt, 27.10.2026): `.github/scripts/flexaccess_family.py` kennt nur noch `resolve` und `fetch` und ruft Git ohne Hintergrundwartung auf (git ≥ 2.47 löste sonst beim Aufräumen `Directory not empty: 'objects'` aus); in allen vier Repositories identisch. Keine Änderung an Plugin-Code, Version unverändert.
 - Keine funktionale Änderung; Versions-Gleichschritt mit der FlexAccess-Familie.
